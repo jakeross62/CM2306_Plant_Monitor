@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html> 
+    <head>
+        <meta charset="utf-8">
+        <title>PlantLife</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link rel= "stylesheet" type = text/css href = "{{url_for('static',filename='style.css')}}">
+        <link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+    </head>
+    <body>    
+    <div class="flash">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %} 
+            <ul class=flashes>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        {% endwith %}
+    </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <div class="banner">
+            <img src="{{url_for('static',filename='img/logo-no-background.png')}}", id="logo">
+            <p class="banner-title" style = "font-size: 100%;">Keep the plants alive~</p>
+        </div>
+        <nav class="navbar navbar-expand-lg navigation_bar">
+            <div class="container-fluid">
+                <ul class="nav justify-content-center">
+                  <li class="nav-item">
+                    <a class = "nav"  href="http://127.0.0.1:5000/vitals">Vitals</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class = "nav" id="register" href="http://127.0.0.1:5000/camera">Camera</a>
+                  </li>
+                  <li>
+                    <a class="nav" href="http://127.0.0.1:5000/register">Register</a>
+                  </li>
+                  <li>
+                    <a class="nav" href="http://127.0.0.1:5000/logout">Logout</a>
+                  </li>
+                </ul>
+            </div>
+        </nav>
+        <div id="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </body>
+</html>

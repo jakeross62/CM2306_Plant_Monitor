@@ -1,0 +1,8 @@
+serial
+datetime
+Flask
+flask-login
+werkzeug
+flask_wtf
+wtforms
+flask_sqlalchemy
